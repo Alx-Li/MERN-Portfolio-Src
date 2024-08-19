@@ -1,0 +1,38 @@
+  // https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
+
+
+  .heroContainer {
+    position: relative;
+    height: 100vh;
+
+    .modelContainer {
+      z-index: 1;
+      mix-blend-mode: multiply;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 50vw;
+      height: 80vh;
+      max-width: 1200px;
+    }
+
+    .centerTextContainer {
+      height: fit-content;
+      z-index: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .foldTextContainer {
+      position: absolute;
+
+      bottom: 0;
+    }
+  }

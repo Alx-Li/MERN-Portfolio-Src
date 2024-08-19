@@ -1,4 +1,4 @@
-import { Lato } from "next/font/google";
+import { Lato, Libre_Barcode_128 } from "next/font/google";
 import localFont from "next/font/local";
 
 // .lato-thin {
@@ -63,6 +63,12 @@ import localFont from "next/font/local";
 export const lato = Lato({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700", "900"],
+  display: "swap",
+});
+
+export const barcode = Libre_Barcode_128({
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
