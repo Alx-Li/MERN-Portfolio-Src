@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import classes from "./FoldText.module.scss";
-import { aexir, barcode, lato, whtpny } from "@/components/Fonts/Fonts";
+import { aexir, barcode, lato, whtpny } from "@/components/Fonts";
 
 export default function FoldText() {
   return (

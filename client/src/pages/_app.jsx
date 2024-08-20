@@ -1,10 +1,13 @@
 import "@/styles/globals.scss";
-import Header from "@/components/Header/Header";
-export default function App({ Component, pageProps }) {
+import Header from "@/components/Header";
+import { AnimatePresence } from "framer-motion";
+export default function App({ Component, pageProps, router }) {
   return (
     <>
       <Header />
-      <Component {...pageProps} />
+      <AnimatePresence mode="wait">
+        <Component key={router.route} {...pageProps} />
+      </AnimatePresence>
     </>
   );
 }
