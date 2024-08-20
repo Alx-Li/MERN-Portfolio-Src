@@ -3,6 +3,12 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: #eceae9;
+
+  ::selection {
+    color: white;
+    background: #1e1c1c;
+    mix-blend-mode: multiply;
+  }
 }
 
 * {
