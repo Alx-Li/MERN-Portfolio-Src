@@ -9,9 +9,9 @@ const LogoScene = dynamic(() => import("@/components/Logo/Scene.jsx"), {
 export default function Hero() {
   return (
     <div className={classes.heroContainer}>
-      <div className={classes.modelContainer}>
+      {/* <div className={classes.modelContainer}>
         <LogoScene />
-      </div>
+      </div> */}
       <div className={classes.centerTextContainer}>
         <TextScroll />
       </div>

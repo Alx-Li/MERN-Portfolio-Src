@@ -1,4 +1,4 @@
-import { useGLTF, useAspect } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 useGLTF.preload("/Logo/3d2.glb");
 import { useFrame } from "@react-three/fiber";

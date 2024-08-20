@@ -1,7 +1,7 @@
 .headerContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
   padding: 15px 30px;
   width: 100vw;
   position: fixed;
@@ -9,30 +9,81 @@
   z-index: 100;
 
   .clock {
+    position: relative;
+    top: 4px;
     font-size: 75px;
     width: 138px;
 
   }
 
   .linkContainer {
-    position: relative;
-    top: -10px;
     display: flex;
-    gap: 10px;
+    // gap: 10px;
 
-    .navLink {
+    .linkWrapper {
+      width: 165px;
       text-decoration: none;
       text-align: center;
-      color: black;
-      font-size: 26px;
-      width: 165px
-    }
 
+      // &:hover {
+      //   opacity: 0.8;
+      // }
+
+      .navText {
+        color: black;
+        font-size: 26px;
+        position: relative;
+
+        .pill {
+          position: absolute;
+          inset: -4px 0;
+          top: 4px;
+          border: 1px solid black;
+
+          .blockerL {
+            z-index: 0;
+            position: absolute;
+            top: 13%;
+            left: -2px;
+            width: 3px;
+            height: 75%;
+            background: #eceae9;
+          }
+
+          .blockerR {
+            position: absolute;
+            top: 13%;
+            right: -2px;
+            width: 3px;
+            height: 75%;
+            background: #eceae9;
+          }
+
+          .blockerT {
+            position: absolute;
+            top: -2px;
+            left: 6%;
+            width: 89%;
+            height: 3px;
+            background: #eceae9;
+          }
+
+          .blockerB {
+            position: absolute;
+            bottom: -2px;
+            left: 6%;
+            width: 89%;
+            height: 3px;
+            background: #eceae9;
+          }
+        }
+      }
+    }
   }
 
   .accent {
     position: relative;
-    top: -4px;
+    top: 7px;
     font-size: 25px;
     width: 138px;
   }

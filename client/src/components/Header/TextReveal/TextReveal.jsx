@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 
 export default function TextReveal({
   velocity,
   originalText,
   changeTo,
   animateLeave = false,
-  href,
   className,
   style,
+  children,
 }) {
   const [displayText, setDisplayText] = useState(originalText);
 
@@ -61,14 +60,14 @@ export default function TextReveal({
   };
 
   return (
-    <Link
-      href={href}
+    <p
       className={className}
       style={style}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      {children}
       {displayText}
-    </Link>
+    </p>
   );
 }
