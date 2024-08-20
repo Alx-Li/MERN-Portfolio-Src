@@ -3,7 +3,7 @@ import Head from "next/head";
 import WipHero from "@/components/WipHero";
 import Layout from "@/components/Layout";
 
-export default function Home() {
+export default function Contact() {
   return (
     <>
       <Head>
@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
       <Layout>
         <main className={styles.main}>
-          <WipHero />
+          <WipHero text={"work.in.progress//"} />
         </main>
       </Layout>
     </>
