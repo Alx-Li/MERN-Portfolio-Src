@@ -9,11 +9,13 @@
       z-index: 1;
       mix-blend-mode: multiply;
       position: absolute;
-      top: 2%;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
       width: 50vw;
-      height: 90vh;
+      height: 80vh;
       max-width: 1200px;
     }
 
@@ -26,6 +28,30 @@
       top: 0;
       bottom: 0;
       margin: auto;
+
+      .chinaText {
+        position: absolute;
+        left: 19%;
+        transform: translateX(-50%);
+        top: 74%;
+        margin: auto;
+        font-size: 25px;
+        color: #7b7877;
+        letter-spacing: 40px;
+      }
+
+      .desc {
+        text-transform: uppercase;
+        position: absolute;
+        left: 20%;
+        transform: translateX(-50%);
+        top: 80%;
+        margin: auto;
+        font-size: 20px;
+        color: #7b7877;
+        font-weight: 300;
+        max-width: 655px;
+      }
     }
 
     .foldTextContainer {

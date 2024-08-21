@@ -1,7 +1,6 @@
 import styles from "@/styles/Home.module.scss";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const WipHero = dynamic(() => import("@/components/WipHero"), { ssr: false });
 
 // import Layout from "@/components/Layout";
 

@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <Layout>
         <main className={styles.main}>
-          <Hero />
+          <Hero text={"catchphrase//"} logo />
         </main>
       </Layout>
     </>

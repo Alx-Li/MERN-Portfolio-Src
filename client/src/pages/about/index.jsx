@@ -1,6 +1,6 @@
 import styles from "@/styles/Home.module.scss";
 import Head from "next/head";
-import WipHero from "@/components/WipHero";
+import Hero from "@/components/Hero";
 import Layout from "@/components/Layout";
 
 export default function About() {
@@ -14,7 +14,7 @@ export default function About() {
       </Head>
       <Layout>
         <main className={styles.main}>
-          <WipHero text={"work.in.progress//"} />
+          <Hero text={"work.in.progress//"} />
         </main>
       </Layout>
     </>
