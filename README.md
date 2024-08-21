@@ -1,4 +1,4 @@
-# MERN-Portfolio-Dev
+# Portfolio
 
 <img src="./design_files/Home.png">
 Welcome to the repo for my portfolio website. Follow my

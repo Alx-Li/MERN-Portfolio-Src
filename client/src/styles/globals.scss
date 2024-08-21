@@ -1,0 +1,21 @@
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #eceae9;
+
+  ::selection {
+    color: white;
+    background: #1e1c1c;
+    // alt colors
+    // color: #272525;
+    // background: white;
+    mix-blend-mode: multiply;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}

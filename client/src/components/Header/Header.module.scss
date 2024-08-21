@@ -1,0 +1,89 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
+  padding: 25px 30px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+
+  .clock {
+    position: relative;
+    top: 4px;
+    font-size: 75px;
+    width: 138px;
+
+  }
+
+  .linkContainer {
+    display: flex;
+    // gap: 10px;
+
+    .linkWrapper {
+      width: 165px;
+      text-decoration: none;
+      text-align: center;
+
+      // &:hover {
+      //   opacity: 0.8;
+      // }
+
+      .navText {
+        color: black;
+        font-size: 28px;
+        position: relative;
+
+        .pill {
+          position: absolute;
+          inset: -4px 0;
+          top: 4px;
+          border: 1px solid black;
+
+          .blockerL {
+            position: absolute;
+            top: 13%;
+            left: -4px;
+            width: 6px;
+            height: 75%;
+            background: #eceae9;
+          }
+
+          .blockerR {
+            position: absolute;
+            top: 13%;
+            right: -4px;
+            width: 6px;
+            height: 75%;
+            background: #eceae9;
+          }
+
+          .blockerT {
+            position: absolute;
+            top: -4px;
+            left: 6%;
+            width: 89%;
+            height: 5px;
+            background: #eceae9;
+          }
+
+          .blockerB {
+            position: absolute;
+            bottom: -4px;
+            left: 6%;
+            width: 89%;
+            height: 6px;
+            background: #eceae9;
+          }
+        }
+      }
+    }
+  }
+
+  .accent {
+    position: relative;
+    top: 7px;
+    font-size: 25px;
+    width: 138px;
+  }
+}
