@@ -3,15 +3,8 @@ import { useEffect } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import Model from "./Model.jsx";
 import { Suspense } from "react";
-import { Html, useProgress } from "@react-three/drei";
 import { EffectComposer, Noise, DotScreen } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
-
-function Loader() {
-  const { progress } = useProgress();
-
-  return <Html center>{progress.toFixed(1)} % loaded</Html>;
-}
 
 function ResizeHandler() {
   const { camera, size } = useThree();
@@ -41,7 +34,7 @@ export default function Scene() {
       <ResizeHandler />
       <fog attach="fog" args={["#eceae9", 25, 65]} />
       <ambientLight intensity={2.5} color={"#eceae9"} />
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={null}>
         <Model />
       </Suspense>
       <EffectComposer multisampling={0} disableNormalPass={true}>
@@ -49,9 +42,9 @@ export default function Scene() {
           blendFunction={BlendFunction.LIGHTEN} // LIGHTEN, COLOR_DODGE
           angle={Math.PI * 0.5} // angle of the dot pattern
           scale={1} // scale of the dot pattern
-          opacity={0.8} // 0.1 w MULTIPLY,
+          opacity={0.5} // 0.1 w MULTIPLY,
         />
-        <Noise opacity={0.08} />
+        <Noise opacity={0.05} />
       </EffectComposer>
     </Canvas>
   );

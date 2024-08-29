@@ -1,8 +1,9 @@
 import styles from "@/styles/Home.module.scss";
 import Head from "next/head";
 import Hero from "@/components/Hero";
-import Layout from "@/components/Layout";
-
+import Layout from "@/components/Layout/Transition";
+import TextScrollv2 from "@/components/Hero/TextScrollv2";
+import FoldText from "@/components/Accents/FoldText";
 export default function Contact() {
   return (
     <>
@@ -14,6 +15,8 @@ export default function Contact() {
       <Layout>
         <main className={styles.main}>
           <Hero text={"work.in.progress//"} />
+          <FoldText />
+          <div style={{ height: "100vh" }} />
         </main>
       </Layout>
     </>

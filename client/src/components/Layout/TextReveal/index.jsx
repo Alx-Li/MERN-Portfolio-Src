@@ -2,15 +2,6 @@ import React, { useState, useEffect } from "react";
 import { whtpny } from "@/components/Fonts";
 import classes from "./TextReveal.module.scss";
 export default function TextReveal({ velocity, targetText }) {
-  const randomLetters = "QWERTYUIOPASDFGHJKLZXCVBNM".split("");
-
-  const generateRandomString = (length) => {
-    return Array.from(
-      { length },
-      () => randomLetters[Math.floor(Math.random() * randomLetters.length)]
-    ).join("");
-  };
-
   const [displayText, setDisplayText] = useState(targetText);
 
   const shuffle = (o) => {

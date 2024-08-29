@@ -2,7 +2,7 @@ import styles from "@/styles/Home.module.scss";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-// import Layout from "@/components/Layout";
+// import Layout from "@/components/Layout/Transition";
 
 function Error({ statusCode }) {
   return (
