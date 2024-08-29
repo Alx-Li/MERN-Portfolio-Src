@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  color: white;
+  font-kerning: none;
+  width: 220px;
+
+  p {
+    width: 20%;
+    font-size: 30px;
+  }
+
+  .progress {
+    height: 2px;
+    background-color: white;
+  }
+}

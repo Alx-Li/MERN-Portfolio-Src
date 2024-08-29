@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import classes from "./layout.module.scss";
-import TextReveal from "./TextReveal";
+import TextReveal from "../TextReveal";
+import Progress from "../Progress";
 const routes = {
   "/": "Home",
   "/about": "About",
@@ -21,6 +22,7 @@ const anim = (variants) => {
 
 export default function Layout({ children }) {
   const router = useRouter();
+  const delay = router.pathname == "/" ? 4 : 0.6;
 
   // setting window size since window is not exposed in server
   const [dimensions, setDimensions] = useState({
@@ -49,13 +51,17 @@ export default function Layout({ children }) {
     enter: {
       opacity: 0,
       top: -100,
-      transition: { duration: 0.75, delay: 0.6, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 0.75, delay: delay, ease: [0.76, 0, 0.24, 1] },
       transitionEnd: { top: "47.5%" },
     },
     exit: {
       opacity: 1,
       top: "40%",
-      transition: { duration: 0.5, delay: 0.4, ease: [0.33, 1, 0.68, 1] },
+      transition: {
+        duration: 0.5,
+        delay: 0.6,
+        ease: [0.33, 1, 0.68, 1],
+      },
     },
   };
 
@@ -63,18 +69,19 @@ export default function Layout({ children }) {
     <div className={classes.curve}>
       <motion.div {...anim(text)} className={classes.route}>
         <TextReveal velocity={60} targetText={routes[router.pathname]} />
+        {router.pathname === "/" && <Progress />}
       </motion.div>
       <div
         style={{ opacity: dimensions.width === null ? 1 : 0 }}
         className={classes.background}
       />
-      {dimensions.width !== null && <SVG {...dimensions} />}
+      {dimensions.width !== null && <SVG {...dimensions} delay={delay} />}
       {children}
     </div>
   );
 }
 
-const SVG = ({ height, width }) => {
+const SVG = ({ height, width, delay }) => {
   const initialPath = `
       M0 300 
       Q${width / 2} 0 ${width} 300
@@ -98,7 +105,7 @@ const SVG = ({ height, width }) => {
       },
       enter: {
         d: targetPath,
-        transition: { duration: 0.75, delay: 0.6, ease: [0.76, 0, 0.24, 1] },
+        transition: { duration: 0.75, delay: delay, ease: [0.76, 0, 0.24, 1] },
       },
       exit: {
         d: initialPath,
@@ -113,7 +120,7 @@ const SVG = ({ height, width }) => {
     },
     enter: {
       top: "-100vh",
-      transition: { duration: 0.75, delay: 0.6, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 0.75, delay: delay, ease: [0.76, 0, 0.24, 1] },
       transitionEnd: {
         top: "100vh",
       },

@@ -1,5 +1,4 @@
 import classes from "./TextScroll.module.scss";
-import { useProgress } from "@react-three/drei";
 import { kimchi } from "@/components/Fonts";
 
 export default function TextScroll({ text }) {

@@ -30,9 +30,16 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Info
+
 Styling with SASS
 
 File Structure https://stackoverflow.com/questions/76214501/nextjs-13-folder-structure-best-practice
 
-
 https://gltf.pmnd.rs/
+https://animejs.com/
+https://gsap.com/
+https://motion.dev/
+https://popmotion.io/
+https://mojs.github.io/
+https://www.framer.com/motion/
+https://react-spring.dev/
