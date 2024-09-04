@@ -13,7 +13,7 @@ function LogoMesh({ color, y_offset, delay, damping }) {
 
   // Use spring to smooth the rotation transition
   const smoothRotationY = useSpring(rotationY, {
-    damping: 20,
+    damping: 100,
     stiffness: 300,
   });
 

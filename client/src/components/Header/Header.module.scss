@@ -7,11 +7,12 @@
   position: fixed;
   top: 0;
   z-index: 2;
+  mix-blend-mode: darken;
 
   .clock {
     position: relative;
-    top: 4px;
-    font-size: 75px;
+    top: 9px;
+    font-size: 64px;
     width: 138px;
 
   }

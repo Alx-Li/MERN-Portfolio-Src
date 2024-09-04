@@ -13,15 +13,22 @@ export default function Hero({ text, logo = false }) {
 
   const { scrollYProgress } = useScroll({
     target: container,
-
     offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"]);
-
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const backgroundColor = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 1)"]
+  );
   return (
     <div style={{ overflow: "hidden" }}>
-      <motion.div style={{ y }} className={classes.heroContainer}>
+      <motion.div
+        style={{ y, backgroundColor }}
+        className={classes.heroContainer}
+      >
         {logo && (
           <div className={classes.modelContainer}>
             <LogoScene />

@@ -77,11 +77,6 @@ export const aexir = localFont({
   display: "swap",
 });
 
-export const akira = localFont({
-  src: "./Akira Expanded.otf",
-  display: "swap",
-});
-
 export const kimchi = localFont({
   src: "./Kimchi.otf",
   display: "swap",
