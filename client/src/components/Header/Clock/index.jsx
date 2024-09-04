@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 export default function ClockTextReveal({
   velocity = 60,
-  changeTo = "alx",
+  changeTo = "pst",
   className,
   style,
 }) {
   const formatTime = (date) => {
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
+    const vancouverTime = new Date(
+      date.toLocaleString("en-US", { timeZone: "America/Vancouver" })
+    );
+    let hours = vancouverTime.getHours();
+    let minutes = vancouverTime.getMinutes();
 
-    // Convert from 24-hour to 12-hour format if needed
-    hours = hours % 12 || 12;
-
-    // Add leading zeros to minutes and seconds
+    // Add leading zeros to minutes
     minutes = minutes < 10 ? `0${minutes}` : minutes;
 
     return `${hours}:${minutes}`;

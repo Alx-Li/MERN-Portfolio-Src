@@ -10,7 +10,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 const tabs = [
   { id: "home", label: "home", href: "/" },
-  { id: "contact", label: "contact", changeTo: "in.prgrss", href: "/contact" },
   { id: "about", label: "about", changeTo: "in.prgrss", href: "/about" },
   {
     id: "projects",
@@ -18,6 +17,7 @@ const tabs = [
     changeTo: "in.prgrss",
     href: "/projects",
   },
+  { id: "contact", label: "contact", changeTo: "in.prgrss", href: "/contact" },
 ];
 
 const TextReveal = dynamic(() => import("./TextReveal"), {

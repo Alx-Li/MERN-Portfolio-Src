@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Progress() {
   const [progress, setProgress] = useState(0);
   const increments = 100; // Number of increments
-  const intervalTime = 1600 / increments; // Time between each increment
+  const intervalTime = 1900 / increments; // Time between each increment
 
   useEffect(() => {
     const startProgress = () => {
@@ -39,7 +39,7 @@ export default function Progress() {
           width: "0px",
         }}
         animate={{
-          width: `${(4 * progress) / 5}%`,
+          width: `${progress}%`,
         }}
       />
     </div>
