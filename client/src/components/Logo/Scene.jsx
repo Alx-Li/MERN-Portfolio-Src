@@ -28,14 +28,14 @@ function ResizeHandler() {
   return null;
 }
 
-export default function Scene() {
+export default function Scene({ disableInteraction = true }) {
   return (
     <Canvas orthographic camera={{ position: [0, 20, 20], near: 0.1, far: 50 }}>
       <ResizeHandler />
       <fog attach="fog" args={["#eceae9", 25, 65]} />
       <ambientLight intensity={2.5} color={"#eceae9"} />
       <Suspense fallback={null}>
-        <Model />
+        <Model disableInteraction={disableInteraction} />
       </Suspense>
       <EffectComposer multisampling={0} disableNormalPass={true}>
         <DotScreen

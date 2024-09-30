@@ -13,9 +13,17 @@ import { wrap } from "@motionone/utils";
 import { kimchi } from "@/components/Fonts";
 
 // https://www.framer.com/motion/scroll-animations/#scroll-velocity
-function TextScrollv2({ baseVelocity = 100, text }) {
+function TextScrollv2({
+  baseVelocity = 100,
+  text,
+  disableScroll = false,
+  disableInteraction = true,
+}) {
   const baseX = useMotionValue(0);
-  const { scrollY } = useScroll();
+  let { scrollY } = useScroll(0);
+  if (disableInteraction) {
+    scrollY = useMotionValue(0);
+  }
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
@@ -34,6 +42,7 @@ function TextScrollv2({ baseVelocity = 100, text }) {
 
   const directionFactor = useRef(1);
   useAnimationFrame((t, delta) => {
+    if (disableScroll) return;
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
     /**
