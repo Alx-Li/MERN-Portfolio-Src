@@ -40,8 +40,7 @@ export default function Hero({ text, logo = false }) {
           <div className={classes.chinaText}>桃李不言, 下自成蹊</div>
           <div className={`${lato.className} ${classes.desc}`}>
             A WHOLE LOTTA TEXT ABOUT WHO I AM AND WHAT I DO. A BRIEF INTRO ABOUT
-            SUM SHT like idk fancy corpo bs and being all wiseman and
-            (((o(*°▽°*)o)))
+            SUM I like idk, still be figuring it out. (((o(*°▽°*)o)))
           </div>
         </div>
         {/* <div className={classes.foldTextContainer}>
