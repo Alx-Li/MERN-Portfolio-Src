@@ -21,11 +21,6 @@ export default function ClockTextReveal({
   const [displayText, setDisplayText] = useState(formatTime(new Date()));
   const intervalRef = useRef(null); // Ref to store the interval ID
 
-  useEffect(() => {
-    startClock(); // Start the clock on mount
-    return () => stopClock(); // Cleanup on unmount
-  }, [startClock]);
-
   const startClock = () => {
     intervalRef.current = setInterval(() => {
       const currentTime = new Date();
@@ -39,6 +34,11 @@ export default function ClockTextReveal({
       clearInterval(intervalRef.current);
     }
   };
+
+  useEffect(() => {
+    startClock(); // Start the clock on mount
+    return () => stopClock(); // Cleanup on unmount
+  }, [startClock]);
 
   const shuffle = (o) => {
     for (

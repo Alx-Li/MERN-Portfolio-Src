@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import {
   motion,
-  useScroll,
   useSpring,
   useTransform,
   useMotionValue,
@@ -15,7 +14,7 @@ import { kimchi } from "@/components/Fonts";
 // https://www.framer.com/motion/scroll-animations/#scroll-velocity
 function TextScrollv2({ baseVelocity = 100, text, disableScroll = false }) {
   const baseX = useMotionValue(0);
-  let { scrollY } = useScroll(0);
+  const scrollY = useMotionValue(0);
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
