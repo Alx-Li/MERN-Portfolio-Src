@@ -1,19 +1,14 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import {
-  useTransform,
-  useScroll,
-  useSpring,
-  useMotionValue,
-} from "framer-motion";
+import { useTransform, useScroll, useSpring } from "framer-motion";
 useGLTF.preload("/Logo/3d2.glb");
 
 function LogoMesh({ color, y_offset, delay, damping }) {
   const group = useRef(null);
   const { nodes } = useGLTF("/Logo/3d2.glb");
 
-  const scrollYProgress = useMotionValue(0);
+  let { scrollYProgress } = useScroll(); // Hook to get scroll progress
 
   // Map the scroll progress to a rotation range
   const rotationY = useTransform(scrollYProgress, [0, 1], [0, Math.PI * 2]);
@@ -52,7 +47,7 @@ function LogoMesh({ color, y_offset, delay, damping }) {
   );
 }
 
-export default function Model() {
+export default function Model({}) {
   return (
     <group>
       <LogoMesh color={"#000000"} y_offset={3} delay={0} damping={0.5} />

@@ -24,7 +24,7 @@ export default function ClockTextReveal({
   useEffect(() => {
     startClock(); // Start the clock on mount
     return () => stopClock(); // Cleanup on unmount
-  }, []);
+  }, [startClock]);
 
   const startClock = () => {
     intervalRef.current = setInterval(() => {
