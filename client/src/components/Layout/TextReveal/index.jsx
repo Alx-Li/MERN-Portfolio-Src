@@ -44,7 +44,7 @@ export default function TextReveal({ velocity, targetText }) {
 
   useEffect(() => {
     shuffleText(targetText, targetText);
-  }, []); // Empty dependency array to trigger on component mount
+  }, [shuffleText]); // Empty dependency array to trigger on component mount
   // some reason keeps the original text????
   return <p className={`${classes.text} ${whtpny.className}`}>{displayText}</p>;
 }
