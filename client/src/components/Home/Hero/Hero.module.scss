@@ -1,5 +1,10 @@
-  // https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
+// https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
 
+.rootContainer {
+  position: relative;
+  height: calc(100vh - 121px);
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+  background-color: rgba(0, 0, 0, 0.8);
 
   .heroContainer {
     position: relative;
@@ -52,6 +57,16 @@
         font-weight: 300;
         max-width: 655px;
       }
+
+      .scroller {
+        color: #7b7877;
+        font-size: 25vw;
+        font-weight: 400;
+
+        @media screen and (min-width: 2400px) {
+          font-size: 500px;
+        }
+      }
     }
 
     .foldTextContainer {
@@ -60,3 +75,4 @@
       bottom: 0;
     }
   }
+}

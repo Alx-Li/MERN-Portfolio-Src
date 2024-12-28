@@ -1,0 +1,38 @@
+.textContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+
+
+  .statusTextContainer {
+    font-size: 15px;
+    width: 245px;
+
+
+    .accent {}
+
+    .statusText {
+      font-weight: 300;
+    }
+  }
+
+  .centerText {
+    font-size: 65px;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .barcode {
+    position: relative;
+    top: 18px;
+    font-size: 53px;
+    width: 245px;
+  }
+}

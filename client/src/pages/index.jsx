@@ -1,8 +1,11 @@
 import styles from "@/styles/Home.module.scss";
 import Head from "next/head";
-import Hero from "@/components/Hero";
+import Hero from "@/components/Home/Hero";
 import Loader from "@/components/Layout/Transition";
 import FoldText from "@/components/Accents/FoldText";
+import About from "@/components/Home/About";
+import Projects from "@/components/Home/Projects";
+import Contact from "@/components/Home/Contact";
 export default function Home() {
   return (
     <>
@@ -15,7 +18,9 @@ export default function Home() {
         <main className={styles.main}>
           <Hero text={"catchphrase//"} logo />
           <FoldText />
-          <div style={{ height: "100vh" }} />
+          <About />
+          <Projects />
+          <Contact />
         </main>
       </Loader>
     </>

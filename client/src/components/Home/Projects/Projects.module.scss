@@ -1,0 +1,37 @@
+.container {
+  height: 300vh; // distance for how long the scroll to occur, changes the speed of scroll
+
+  .contentContainer {
+    background-color: #1e1e1e;
+    padding: 40px 0;
+    top: 84px;
+    position: sticky;
+    display: flex;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .scroller {
+      font-size: 120px;
+      color: #c4c4c4;
+      font-weight: 400;
+
+      @media screen and (min-width: 2400px) {
+        font-size: 150px;
+      }
+    }
+
+    .cards {
+      display: flex;
+      gap: 40px;
+      padding: 0 40px;
+
+      .cardItem {
+        padding: 200px;
+        background-color: white;
+      }
+    }
+  }
+}

@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import {
   motion,
   useScroll,
@@ -10,12 +9,21 @@ import {
 } from "framer-motion";
 import classes from "./TextScrollv2.module.scss";
 import { wrap } from "@motionone/utils";
-import { kimchi } from "@/components/Fonts";
 
 // https://www.framer.com/motion/scroll-animations/#scroll-velocity
-function TextScrollv2({ baseVelocity = 100, text, disableScroll = false }) {
+function TextScrollv2({
+  baseVelocity = 100,
+  autoScroll = false,
+  scrollSpeedFactor = 0.05, // Add a prop to control scroll speed
+  direction = 1,
+  interactive = false,
+  children,
+  className,
+  wrapStart = -20,
+  wrapEnd = -45,
+}) {
   const baseX = useMotionValue(0);
-  let { scrollY } = useScroll(0);
+  const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
@@ -24,30 +32,26 @@ function TextScrollv2({ baseVelocity = 100, text, disableScroll = false }) {
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
     clamp: false,
   });
-  const fontSize = "500px";
+
   /**
    * This is a magic wrapping for the length of the text - you
    * have to replace for wrapping that works for you or dynamically
    * calculate
    */
-  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+  const x = useTransform(baseX, (v) => `${wrap(wrapStart, wrapEnd, v)}%`);
 
-  const directionFactor = useRef(1);
   useAnimationFrame((t, delta) => {
-    if (disableScroll) return;
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+    let moveBy = 0;
 
-    /**
-     * This is what changes the direction of the scroll once we
-     * switch scrolling directions.
-     */
-    if (velocityFactor.get() < 0) {
-      directionFactor.current = -1;
-    } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1;
+    // Add movement based on scroll velocity, scaled down by scrollSpeedFactor
+    if (interactive) {
+      moveBy += direction * velocityFactor.get() * scrollSpeedFactor;
     }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    // Add auto-scrolling movement if enabled
+    if (autoScroll) {
+      moveBy += direction * baseVelocity * (delta / 1000);
+    }
 
     baseX.set(baseX.get() + moveBy);
   });
@@ -61,14 +65,8 @@ function TextScrollv2({ baseVelocity = 100, text, disableScroll = false }) {
    */
   return (
     <div className={classes.parallax}>
-      <motion.div
-        className={`${classes.scroller} ${kimchi.className}`}
-        style={{ x }}
-      >
-        <span>{text}</span>
-        <span>{text}</span>
-        <span>{text}</span>
-        <span>{text}</span>
+      <motion.div className={className} style={{ x }}>
+        {children}
       </motion.div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 export default function ClockTextReveal({
   velocity = 60,
-  changeTo = "pst",
+  changeTo = "YVR",
   className,
   style,
 }) {

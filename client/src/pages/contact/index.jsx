@@ -1,8 +1,8 @@
 import styles from "@/styles/Home.module.scss";
 import Head from "next/head";
-import Hero from "@/components/Hero";
+import Hero from "@/components/Home/Hero";
 import Layout from "@/components/Layout/Transition";
-import TextScrollv2 from "@/components/Hero/TextScrollv2";
+import TextScrollv2 from "@/components/Common/TextScrollv2";
 import FoldText from "@/components/Accents/FoldText";
 export default function Contact() {
   return (

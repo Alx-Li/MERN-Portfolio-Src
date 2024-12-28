@@ -1,6 +1,6 @@
 import styles from "@/styles/Home.module.scss";
 import Head from "next/head";
-import Hero from "@/components/Hero";
+import Hero from "@/components/Home/Hero";
 import Layout from "@/components/Layout/Transition";
 import FoldText from "@/components/Accents/FoldText";
 
@@ -16,7 +16,7 @@ export default function About() {
         <main className={styles.main}>
           <Hero text={"work.in.progress//"} />
           <FoldText />
-          <div style={{ height: "100vh" }} />
+          <div style={{ height: "500vh" }} />
         </main>
       </Layout>
     </>

@@ -1,8 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { whtpny } from "@/components/Common/Fonts";
-import classes from "./TextReveal.module.scss";
-export default function TextReveal({ velocity, targetText }) {
-  const [displayText, setDisplayText] = useState(targetText);
+import React, { useState } from "react";
+
+export default function TextReveal({
+  velocity,
+  originalText,
+  changeTo,
+  animateLeave = false,
+  className,
+  style,
+  children,
+}) {
+  const [displayText, setDisplayText] = useState(originalText);
 
   const shuffle = (o) => {
     for (
@@ -42,9 +49,25 @@ export default function TextReveal({ velocity, targetText }) {
     repeatShuffle(elementText.length, 0);
   };
 
-  useEffect(() => {
-    shuffleText(targetText, targetText);
-  }, []); // Empty dependency array to trigger on component mount
-  // some reason keeps the original text????
-  return <p className={`${classes.text} ${whtpny.className}`}>{displayText}</p>;
+  const handleMouseEnter = () => {
+    if (changeTo) shuffleText(displayText, changeTo);
+    else shuffleText(displayText, originalText);
+  };
+
+  const handleMouseLeave = () => {
+    if (animateLeave) shuffleText(displayText, originalText);
+    else setDisplayText(originalText);
+  };
+
+  return (
+    <p
+      className={className}
+      style={style}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {children}
+      {displayText}
+    </p>
+  );
 }

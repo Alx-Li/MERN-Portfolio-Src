@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useEffect, useState } from "react";
 import classes from "./Progress.module.scss";
-import { whtpnyPX } from "@/components/Fonts";
+import { whtpnyPX } from "@/components/Common/Fonts";
 import { motion } from "framer-motion";
 export default function Progress() {
   const [progress, setProgress] = useState(0);
