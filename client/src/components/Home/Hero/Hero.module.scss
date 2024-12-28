@@ -1,5 +1,10 @@
-  // https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
+// https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
 
+.rootContainer {
+  position: relative;
+  height: calc(100vh - 121px);
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+  background-color: rgba(0, 0, 0, 0.8);
 
   .heroContainer {
     position: relative;
@@ -70,3 +75,4 @@
       bottom: 0;
     }
   }
+}

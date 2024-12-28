@@ -1,5 +1,5 @@
 import "@/styles/globals.scss";
-import Header from "@/components/Header";
+import Header from "@/components/Common/Header";
 import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
 import PlsDesktop from "@/components/Temp/PlsDesktop";

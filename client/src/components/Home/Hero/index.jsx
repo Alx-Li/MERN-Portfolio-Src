@@ -14,17 +14,13 @@ export default function Hero({ text, logo = false }) {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "50vh"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const backgroundColor = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 1)"]
-  );
+
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div ref={container} className={classes.rootContainer}>
       <motion.div
-        style={{ y, backgroundColor }}
+        style={{ y, opacity, backgroundColor: "#eceae9" }}
         className={classes.heroContainer}
       >
         {logo && (
@@ -50,9 +46,6 @@ export default function Hero({ text, logo = false }) {
             SUM I like idk, still be figuring it out. (((o(*°▽°*)o)))
           </div>
         </div>
-        {/* <div className={classes.foldTextContainer}>
-          <FoldText />
-        </div> */}
       </motion.div>
     </div>
   );
