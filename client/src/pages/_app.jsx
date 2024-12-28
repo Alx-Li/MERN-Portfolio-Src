@@ -3,6 +3,7 @@ import Header from "@/components/Common/Header";
 import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
 import PlsDesktop from "@/components/Temp/PlsDesktop";
+import Footer from "@/components/Common/Footer";
 
 export default function App({ Component, pageProps, router }) {
   return (
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps, router }) {
         <AnimatePresence mode="wait">
           <Component key={router.route} {...pageProps} />
         </AnimatePresence>
+        <Footer />
       </div>
       <div className="mobile">
         <PlsDesktop />
