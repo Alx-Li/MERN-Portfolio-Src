@@ -11,14 +11,25 @@ const Projects = () => {
 
   const [carouselWidth, setCarouselWidth] = useState(0);
 
-  // Calculate the width of the carousel dynamically
-  useEffect(() => {
+  // Function to calculate the carousel width
+  const calculateCarouselWidth = () => {
     if (carouselRef.current) {
       setCarouselWidth(
         carouselRef.current.scrollWidth - carouselRef.current.offsetWidth
       );
     }
-  }, [carouselRef]);
+  };
+
+  // Update the carousel width on mount and window resize
+  useEffect(() => {
+    calculateCarouselWidth();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", calculateCarouselWidth);
+
+    // Cleanup the event listener
+    return () => window.removeEventListener("resize", calculateCarouselWidth);
+  }, []);
 
   // Set the x transform range based on carouselWidth
   const x = useTransform(scrollYProgress, [0, 1], [0, -(carouselWidth + 40)]);
@@ -42,8 +53,6 @@ const Projects = () => {
           scrollSpeedFactor={0.02}
           interactive
           className={`${classes.scroller} ${kimchi.className}`}
-          wrapStart={-20}
-          wrapEnd={-45}
         >
           <span>projects projects </span>
           <span>projects projects </span>
