@@ -52,6 +52,16 @@
         font-weight: 300;
         max-width: 655px;
       }
+
+      .scroller {
+        color: #7b7877;
+        font-size: 25vw;
+        font-weight: 400;
+
+        @media screen and (min-width: 2400px) {
+          font-size: 500px;
+        }
+      }
     }
 
     .foldTextContainer {

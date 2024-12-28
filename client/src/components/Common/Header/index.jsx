@@ -2,9 +2,7 @@
 import React, { useState } from "react";
 import classes from "./Header.module.scss";
 import dynamic from "next/dynamic";
-import { aexir } from "@/components/Common/Fonts";
-import { whtpny } from "@/components/Common/Fonts";
-import { whtpnyPX } from "@/components/Common/Fonts";
+import { aexir, whtpny, whtpnyPX } from "@/components/Common/Fonts";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -46,9 +44,13 @@ export default function Header() {
           <Link
             href={tab.href}
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => {
+              window.scrollTo(0, 0, { behavior: "smooth" });
+              setActiveTab(tab.id);
+            }}
             className={classes.linkWrapper}
             onMouseEnter={() => setActiveTab(tab.id)}
+            scroll={false}
           >
             <TextReveal
               originalText={tab.label}

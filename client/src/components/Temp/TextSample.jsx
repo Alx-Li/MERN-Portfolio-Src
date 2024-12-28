@@ -9,7 +9,7 @@ import {
   whtpny,
   whtpnyPX,
   whtpnyLCD,
-} from "../Fonts";
+} from "@/components/Common/Fonts";
 
 export default function TextSample() {
   const { progress } = useProgress();

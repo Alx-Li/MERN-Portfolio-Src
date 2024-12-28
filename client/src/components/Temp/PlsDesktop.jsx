@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./PlsDesktop.module.scss";
-import { lato } from "../Fonts";
+import { lato } from "@/components/Common/Fonts";
 export default function PlsDesktop() {
   return (
     <div className={`${classes.root} ${lato.className}`}>

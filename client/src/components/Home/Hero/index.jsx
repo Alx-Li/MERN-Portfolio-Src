@@ -1,9 +1,7 @@
 import classes from "./Hero.module.scss";
-// import TextScroll from "./TextScroll";
-// import FoldText from "../Accents/FoldText";
-import { lato } from "../Fonts";
+import { lato, kimchi } from "@/components/Common/Fonts";
 import LogoScene from "@/components/Logo/Scene.jsx";
-import TextScrollv2 from "./TextScrollv2";
+import TextScrollv2 from "@/components/Common/TextScrollv2";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 
@@ -35,7 +33,16 @@ export default function Hero({ text, logo = false }) {
           </div>
         )}
         <div className={classes.centerTextContainer}>
-          <TextScrollv2 baseVelocity={1} text={text} />
+          <TextScrollv2
+            baseVelocity={1}
+            autoScroll
+            className={`${classes.scroller} ${kimchi.className}`}
+          >
+            <span>{text}</span>
+            <span>{text}</span>
+            <span>{text}</span>
+            <span>{text}</span>
+          </TextScrollv2>
 
           <div className={classes.chinaText}>桃李不言, 下自成蹊</div>
           <div className={`${lato.className} ${classes.desc}`}>
