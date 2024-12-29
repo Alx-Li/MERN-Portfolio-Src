@@ -1,13 +1,100 @@
-.footerContainer {
+.rootContainer {
   clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
   position: relative;
-  height: 800px;
+  height: 650px;
+  background-color: #1e1e1e;
 
-  .footerContent {
+  .footerContainer {
     position: fixed;
     bottom: 0;
-    height: 800px;
+    height: 650px;
     width: 100%;
-    background-color: #1e1e1e;
+
+    .footerContent {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+
+        .logoNavContainer {
+          display: flex;
+
+          .logo {
+            width: 300px;
+            height: 300px;
+            border-right: #717171 2px solid;
+            padding-right: 50px;
+          }
+
+          .nav {
+            margin-left: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .navLink {
+              text-transform: uppercase;
+              color: #717171;
+              font-size: 20px;
+              text-decoration: none;
+            }
+
+          }
+        }
+
+        .socialsContainer {
+          display: flex;
+          gap: 20px;
+
+          .social {
+            width: 50px;
+            height: 50px;
+            background-color: #717171;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+
+            .icon {
+              fill: #1e1e1e;
+              width: 30px;
+              height: 30px;
+            }
+          }
+        }
+
+      }
+
+      .bottom {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .displayText {
+          color: #3c3c3c;
+          font-size: 300px;
+          line-height: 250px;
+          font-weight: 400;
+        }
+
+        .footerText {
+          color: #3c3c3c;
+          font-size: 20px;
+
+          .footerLink {
+            color: #3c3c3c;
+            text-decoration: none;
+          }
+
+        }
+      }
+    }
   }
 }
