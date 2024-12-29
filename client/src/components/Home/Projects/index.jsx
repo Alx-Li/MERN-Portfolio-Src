@@ -38,6 +38,18 @@ const Projects = () => {
     <div className={classes.container} ref={rootRef}>
       <div className={classes.contentContainer}>
         <TextScrollv2
+          direction={-1}
+          scrollSpeedFactor={0.02}
+          interactive
+          className={`${classes.scroller} ${kimchi.className}`}
+        >
+          <span>project project </span>
+          <span>project project </span>
+          <span>project project </span>
+          <span>project project </span>
+        </TextScrollv2>
+
+        <TextScrollv2
           scrollSpeedFactor={0.05}
           interactive
           className={`${classes.scroller} ${kimchi.className}`}
@@ -46,18 +58,6 @@ const Projects = () => {
           <span>experience experience </span>
           <span>experience experience </span>
           <span>experience experience </span>
-        </TextScrollv2>
-        <TextScrollv2
-          text={"projects "}
-          direction={-1}
-          scrollSpeedFactor={0.02}
-          interactive
-          className={`${classes.scroller} ${kimchi.className}`}
-        >
-          <span>projects projects </span>
-          <span>projects projects </span>
-          <span>projects projects </span>
-          <span>projects projects </span>
         </TextScrollv2>
 
         <motion.div className={classes.cards} style={{ x }} ref={carouselRef}>

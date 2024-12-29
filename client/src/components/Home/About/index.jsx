@@ -1,14 +1,27 @@
 import React from "react";
-import { lato, kimchi, whtpny, aexir } from "@/components/Common/Fonts";
+import { lato, kimchi } from "@/components/Common/Fonts";
 import classes from "./About.module.scss";
 import TextReveal from "@/components/Common/TextReveal";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <div className={classes.aboutContainer}>
-      <h2 className={`${classes.title} ${kimchi.className}`}>ABOUT ME</h2>
-      <div className={`${classes.content} ${lato.className}`}>
+      <motion.h2
+        className={`${classes.title} ${kimchi.className}`}
+        initial={{ opacity: 0, x: -70 }}
+        whileInView={{ opacity: 1, x: 0, threshold: 0.99 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        ABOUT ME
+      </motion.h2>
+      <motion.div
+        className={`${classes.content} ${lato.className}`}
+        initial={{ opacity: 0, x: 70 }}
+        whileInView={{ opacity: 1, x: 0, threshold: 0.99 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <div className={classes.bodyText}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
@@ -21,7 +34,7 @@ const About = () => {
           suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
           lacus vel facilisis.{" "}
         </div>
-      </div>
+      </motion.div>
       <Link
         href="/about"
         className={`${classes.link} ${lato.className}`}

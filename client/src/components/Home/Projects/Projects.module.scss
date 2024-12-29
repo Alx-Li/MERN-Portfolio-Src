@@ -3,8 +3,9 @@
 
   .contentContainer {
     background-color: #1e1e1e;
+    height: calc(100vh - 83px);
     padding: 40px 0;
-    top: 84px;
+    top: 83px;
     position: sticky;
     display: flex;
     overflow: hidden;
