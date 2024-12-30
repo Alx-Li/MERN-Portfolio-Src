@@ -121,7 +121,9 @@ const Projects = () => {
         </motion.div>
         <div className={classes.projectFooter}>
           <div className={classes.scrollContainer}>
-            <div className={`${classes.accent} ${aexir.className}`}>///</div>
+            <div className={`${classes.accent} ${aexir.className}`}>
+              {"///"}
+            </div>
             <div
               className={classes.scrollBarContainer}
               onClick={handleScrollBarClick}
