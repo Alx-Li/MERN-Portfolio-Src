@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import classes from "./Projects.module.scss";
 import TextScrollv2 from "@/components/Common/TextScrollv2";
-import { kimchi } from "@/components/Common/Fonts";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { kimchi, lato, aexir, whtpny } from "@/components/Common/Fonts";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Link from "next/link";
+import TextReveal from "@/components/Common/TextReveal";
 
 const Projects = () => {
   const rootRef = useRef(null);
@@ -33,6 +35,49 @@ const Projects = () => {
 
   // Set the x transform range based on carouselWidth
   const x = useTransform(scrollYProgress, [0, 1], [0, -(carouselWidth + 40)]);
+
+  // Apply a spring to smooth out the scroll progress
+  const smoothScrollYProgress = useSpring(scrollYProgress, {
+    stiffness: 200,
+    damping: 20,
+    mass: 0.8,
+  });
+
+  const scrollBarProgress = useTransform(
+    smoothScrollYProgress,
+    [0, 1],
+    ["1%", "100%"]
+  );
+
+  const handleScrollBarClick = (e) => {
+    if (!rootRef.current) return;
+
+    const rootTop =
+      rootRef.current.getBoundingClientRect().top + window.scrollY;
+
+    const rootEnd = rootRef.current.offsetHeight + rootTop - window.innerHeight;
+
+    // Get the bounding rectangle of the scrollbar container
+    const scrollBarContainer = e.currentTarget;
+    const rect = scrollBarContainer.getBoundingClientRect();
+
+    // Calculate the clicked position as a percentage
+    const clickX = e.clientX - rect.left; // Click position relative to the container
+    const scrollPercentage = clickX / rect.width;
+
+    // Calculate the target scroll position
+    console.log("rootEnd:", rootEnd);
+    console.log("scrollPercentage:", scrollPercentage);
+
+    // 100% == rootEnd
+    // 0% == rootTop
+    const targetY = rootTop + (rootEnd - rootTop) * scrollPercentage;
+
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className={classes.container} ref={rootRef}>
@@ -65,15 +110,44 @@ const Projects = () => {
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
               key={i}
-              className={classes.cardItem}
+              className={`${classes.cardItem} ${whtpny.className}`}
               initial={{ opacity: 0, y: 150 }}
               whileInView={{ opacity: 1, y: 0, threshold: 0.99 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              {i}
+              <div className={classes.cardContent}>{i}</div>
             </motion.div>
           ))}
         </motion.div>
+        <div className={classes.projectFooter}>
+          <div className={classes.scrollContainer}>
+            <div className={`${classes.accent} ${aexir.className}`}>
+              {"///"}
+            </div>
+            <div
+              className={classes.scrollBarContainer}
+              onClick={handleScrollBarClick}
+            >
+              <motion.div
+                className={classes.scrollBar}
+                style={{ width: scrollBarProgress }}
+              />
+            </div>
+          </div>
+          <Link
+            href="/projects"
+            className={`${classes.link} ${lato.className}`}
+            scroll={false}
+            onClick={() => window.scrollTo(0, 0, { behavior: "smooth" })}
+          >
+            <TextReveal
+              originalText={"READ MORE >"}
+              changeTo={"(~˘▽˘)~ ･゜ﾟ･*☆"}
+              animateLeave
+              velocity={60}
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );

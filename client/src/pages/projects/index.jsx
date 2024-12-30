@@ -16,7 +16,6 @@ export default function Projects() {
         <main className={styles.main}>
           <Hero text={"work.in.progress//"} />
           <FoldText />
-          <div style={{ height: "100vh" }} />
         </main>
       </Layout>
     </>

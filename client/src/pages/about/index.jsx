@@ -16,7 +16,6 @@ export default function About() {
         <main className={styles.main}>
           <Hero text={"work.in.progress//"} />
           <FoldText />
-          <div style={{ height: "500vh" }} />
         </main>
       </Layout>
     </>

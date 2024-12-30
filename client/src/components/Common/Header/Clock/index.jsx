@@ -17,28 +17,29 @@ export default function ClockTextReveal({
 
     return `${hours}:${minutes}`;
   };
-  const [time, setTime] = useState(new Date());
-  const [displayText, setDisplayText] = useState(formatTime(new Date()));
-  const intervalRef = useRef(null); // Ref to store the interval ID
 
-  const startClock = () => {
-    intervalRef.current = setInterval(() => {
-      const currentTime = new Date();
-      setTime(currentTime);
-      setDisplayText(formatTime(currentTime));
-    }, 1000);
-  };
-
-  const stopClock = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-  };
+  const time = useRef(new Date());
 
   useEffect(() => {
-    startClock(); // Start the clock on mount
-    return () => stopClock(); // Cleanup on unmount
-  }, [startClock]);
+    const interval = setInterval(() => {
+      time.current = new Date();
+      const vancouverTime = new Date(
+        time.current.toLocaleString("en-US", { timeZone: "America/Vancouver" })
+      );
+      let hours = vancouverTime.getHours();
+      let minutes = vancouverTime.getMinutes();
+
+      // Add leading zeros to minutes
+      minutes = minutes < 10 ? `0${minutes}` : minutes;
+      // console.log(`${hours}:${minutes}`);
+      setFormattedTime(`${hours}:${minutes}`);
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const [formattedTime, setFormattedTime] = useState(formatTime(time.current));
+  const [displayText, setDisplayText] = useState(formatTime(time.current));
 
   const shuffle = (o) => {
     for (
@@ -79,13 +80,11 @@ export default function ClockTextReveal({
   };
 
   const handleMouseEnter = () => {
-    stopClock(); // Stop the clock when hovered
     shuffleText(displayText, changeTo);
   };
 
   const handleMouseLeave = () => {
-    startClock(); // Restart the clock when the mouse leaves
-    shuffleText(displayText, formatTime(time));
+    shuffleText(displayText, formattedTime);
   };
 
   return (
