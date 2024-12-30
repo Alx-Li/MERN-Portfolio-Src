@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import classes from "./Projects.module.scss";
 import TextScrollv2 from "@/components/Common/TextScrollv2";
-import { kimchi, lato, aexir } from "@/components/Common/Fonts";
+import { kimchi, lato, aexir, whtpny } from "@/components/Common/Fonts";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Link from "next/link";
 import TextReveal from "@/components/Common/TextReveal";
@@ -110,12 +110,12 @@ const Projects = () => {
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
               key={i}
-              className={classes.cardItem}
+              className={`${classes.cardItem} ${whtpny.className}`}
               initial={{ opacity: 0, y: 150 }}
               whileInView={{ opacity: 1, y: 0, threshold: 0.99 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              project #{i}
+              <div className={classes.cardContent}>{i}</div>
             </motion.div>
           ))}
         </motion.div>
